@@ -68,3 +68,31 @@ t.test(zona3_guisar, conf.level = 0.99 )$conf.int
 # PREGUNTA 3
 # ¿Cuál de los dos alimentos logra mayor precio en la carne de guisar, la Zona 2 o la 
 # Zona 4? Suponga 1 − α = 0,99
+
+# Verificamos que las varianzas son iguales
+var.test(zona2_guisar, zona4_guisar)$conf.int
+
+# Intervalo de diferencia de medias
+t.test (zona4_guisar, zona2_guisar, var.equal = T, conf.level = 0.99 )$conf.int
+
+######################
+
+# PREGUNTA 4
+# Los investigadores presumen que la diferencia del gasto promedio en carne de la zona 2
+# y 4 es menor a 1$. ¿Es esta afirmación cierta?
+
+######################
+
+# PREGUNTA 5
+# Calcule un intervalo de confianza al 90% para estimar la proporción de precios mayores
+# a 300$ de la Zona 3
+
+zona3_precios = zona3[carne$Zona3 > 300]
+
+######################
+
+# PREGUNTA 6
+# Una semana después se volvió a realizar la encuesta en la Zona 1, en los mismos 
+# abastecimientos. La información se encuentra en la columna Zona1B. El investigador 
+# presume que los precios han aumentado en dicha zona con relación a la semana anterior. 
+# ¿Es esta información correcta?
