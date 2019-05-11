@@ -108,3 +108,14 @@ binom.test(size_z3p, size_z3, conf.level = 0.90)$conf.int
 # abastecimientos. La información se encuentra en la columna Zona1B. El investigador 
 # presume que los precios han aumentado en dicha zona con relación a la semana anterior. 
 # ¿Es esta información correcta?
+
+p1b = mean(carne$Zona3B)
+p1 = mean(zona1)
+#Tomamos como hipotesis nula que p1b = p1
+#Tomamos como hipotesis alternativa que p1b > p1
+
+#Tomando alfa como 5%, calculamos
+
+t.test( carne$Zona3B, alternative = "greater", mu = p1, conf.level = 0.95 )
+
+
