@@ -38,6 +38,17 @@ boxplot(zona3_guisar, ylab="Precios", xlab="Zona 3", col=c("gray"))
 
 boxplot(zona4_guisar, ylab="Precios", xlab="Zona 4", col=c("yellow"))
 
+# Tabla
+
+D = data.frame(Zonas =c('Zona1','Zona2','Zona3','Zona4') ,
+               Minimos =c(min(zona1),min(zona2),min(zona3),min(zona4)) , 
+               Q1 =c(quantile(zona1,0.25),quantile(zona2,0.25),quantile(zona3,0.25),quantile(zona4,0.25)) ,
+               Q2 =c(quantile(zona1,0.50),quantile(zona2,0.50),quantile(zona3,0.50),quantile(zona4,0.50)) ,
+               Q3 =c(quantile(zona1,0.75),quantile(zona2,0.75),quantile(zona3,0.75),quantile(zona4,0.75)) ,
+               Media =c(mean(zona1),mean(zona2),mean(zona3),mean(zona4)),
+               Desviacion =c(sd(zona1),sd(zona2),sd(zona3),sd(zona4)),
+               stringsAsFactors = FALSE )
+
 ######################
 
 # PREGUNTA 2
