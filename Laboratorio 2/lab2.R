@@ -1,3 +1,8 @@
+# Laboratorio 2 - CO3321
+# Sección 1
+# Andrea Reyes 15-11201
+# Javier Medina 12-10400
+
 carne = read.table("zonas_carne.txt", header=T)
 
 zona1 = carne$Zona1
@@ -81,13 +86,20 @@ t.test (zona4_guisar, zona2_guisar, var.equal = T, conf.level = 0.99 )$conf.int
 # Los investigadores presumen que la diferencia del gasto promedio en carne de la zona 2
 # y 4 es menor a 1$. ¿Es esta afirmación cierta?
 
+# H0: mu4 == mu2 vs. Ha: mu4 - mu2 < 1
+# alpha = 0.01
+t.test(zona4, zona2, alternative = "less", mu = 1, conf.level = 0.99 )
+
 ######################
 
 # PREGUNTA 5
 # Calcule un intervalo de confianza al 90% para estimar la proporción de precios mayores
 # a 300$ de la Zona 3
 
+size_z3 = length(zona3) # Tamaño del vector Zona3
 zona3_precios = zona3[carne$Zona3 > 300]
+size_z3p = length(zona3_precios) # Tamaño del vector Zona3 filtrado por precios mayores a 300$
+binom.test(size_z3p, size_z3, conf.level = 0.90)$conf.int
 
 ######################
 
