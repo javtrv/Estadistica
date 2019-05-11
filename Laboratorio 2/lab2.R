@@ -46,13 +46,14 @@ boxplot(zona4_guisar, ylab="Precios", xlab="Zona 4", col=c("yellow"))
 # Tabla
 
 D = data.frame(Zonas =c('Zona1','Zona2','Zona3','Zona4') ,
-               Minimos =c(min(zona1),min(zona2),min(zona3),min(zona4)) , 
-               Q1 =c(quantile(zona1,0.25),quantile(zona2,0.25),quantile(zona3,0.25),quantile(zona4,0.25)) ,
-               Q2 =c(quantile(zona1,0.50),quantile(zona2,0.50),quantile(zona3,0.50),quantile(zona4,0.50)) ,
-               Q3 =c(quantile(zona1,0.75),quantile(zona2,0.75),quantile(zona3,0.75),quantile(zona4,0.75)) ,
-               Media =c(mean(zona1),mean(zona2),mean(zona3),mean(zona4)),
-               Desviacion =c(sd(zona1),sd(zona2),sd(zona3),sd(zona4)),
+               Minimos =c(min(zona1_guisar),min(zona2_guisar),min(zona3_guisar),min(zona4_guisar)) , 
+               Q1 =c(quantile(zona1_guisar,0.25),quantile(zona2_guisar,0.25),quantile(zona3_guisar,0.25),quantile(zona4_guisar,0.25)) ,
+               Q2 =c(quantile(zona1_guisar,0.50),quantile(zona2_guisar,0.50),quantile(zona3_guisar,0.50),quantile(zona4_guisar,0.50)) ,
+               Q3 =c(quantile(zona1_guisar,0.75),quantile(zona2_guisar,0.75),quantile(zona3_guisar,0.75),quantile(zona4_guisar,0.75)) ,
+               Media =c(mean(zona1_guisar),mean(zona2_guisar),mean(zona3_guisar),mean(zona4_guisar)),
+               Desviacion =c(sd(zona1_guisar),sd(zona2_guisar),sd(zona3_guisar),sd(zona4_guisar)),
                stringsAsFactors = FALSE )
+
 
 ######################
 
