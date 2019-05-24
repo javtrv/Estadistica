@@ -1,3 +1,9 @@
+# Laboratorio 3 - CO3321
+# Sección 1
+# Andrea Reyes 15-11201
+# Javier Medina 12-10400
+
+
 ## 1. Se desea conocer si existe alguna relación entre el nivel socioeconómico (pobre, medio y rico) y la
 ## zona donde vive (rural y urbano) 505 grupos de familias:
 ##  X/Y      Rural(1) Urbano(2)
@@ -8,11 +14,10 @@
 columnas = 2
 filas = 3
 
-pobre = c(249,139)
-medio = c(80,20)
-rico  = c(2,15)
+rural <- c(249, 80, 2)
+urbano <- c(139, 20, 15)
 
-matriz = cbind(pobre,medio,rico)
+(matriz <- cbind(rural, urbano))
 
 chisq.test(matriz)
 
@@ -60,3 +65,43 @@ edades = c(32, 23, 64, 31, 74, 44, 61, 33, 66, 73,
            68, 89, 93, 24, 73, 42, 33, 63, 36, 48,
            77, 75, 37, 59, 70, 61, 43, 68, 54, 29,
            48, 81, 57, 97, 35, 58, 56, 58, 57, 45)
+
+# Tabla de frecuencia de las edades
+hist(edades, plot = F)
+
+r = 2
+fi = c(5, 8, 7, 10, 10, 5, 3, 2)
+
+# Gráficas para observar el comportamiento de los datos
+qqnorm(fi)
+qqline(fi)
+
+k = length(fi)
+n = sum(fi)
+
+# Media de las clases
+mi = c(25, 35, 45, 55, 65, 75, 85, 95)
+
+xbarra = sum(fi*mi)/n
+xbarra
+
+x_barra = rep(xbarra, k)
+x_barra
+
+S_cuadrado = sum( fi*(mi-x_barra)^2 )/(n-1)
+S_cuadrado
+
+S = sqrt(S_cuadrado)
+S
+
+pi = pnorm(4 : 11* 10, xbarra, S) - pnorm(3 : 10 *10, xbarra, S)
+pi
+
+chi2_obs = sum((fi-n*pi)^2/(n*pi))
+chi2_obs
+
+chi2_alpha <- qchisq(1 - alpha, k - 1 -r)
+chi2_alpha
+
+p_valor = 1 - pchisq(chi2_obs, k - 1 - r)
+p_valor
