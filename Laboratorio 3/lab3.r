@@ -41,10 +41,13 @@ r = 0
 
 p = c(1/4,1/4,1/4,1/4)
 fi = c(294,276,238,192)
+
 chi2_obs = sum((fi-n*p)^2/(n*p))
 chi2_obs
+
 chi2.alpha = qchisq(1-alpha,k-1-r)
 chi2.alpha
+
 p_valor = 1- pchisq(chi2_obs, k-1-r)
 p_valor
 
@@ -94,7 +97,7 @@ S_cuadrado
 S = sqrt(S_cuadrado)
 S
 
-pi = pnorm(4 : 11* 10, xbarra, S) - pnorm(3 : 10 *10, xbarra, S)
+pi = pnorm(3 : 10* 10, xbarra, S) - pnorm(2 : 9 *10, xbarra, S)
 pi
 
 chi2_obs = sum((fi-n*pi)^2/(n*pi))
