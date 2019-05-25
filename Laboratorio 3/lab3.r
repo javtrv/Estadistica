@@ -73,7 +73,7 @@ edades = c(32, 23, 64, 31, 74, 44, 61, 33, 66, 73,
 hist(edades, plot = F)
 
 r = 2
-fi = c(5, 8, 7, 10, 10, 5, 3, 2)
+fi = c(5, 8, 7, 10, 10, 5, 5)
 
 # Gráficas para observar el comportamiento de los datos
 qqnorm(fi)
@@ -83,7 +83,7 @@ k = length(fi)
 n = sum(fi)
 
 # Media de las clases
-mi = c(25, 35, 45, 55, 65, 75, 85, 95)
+mi = c(25, 35, 45, 55, 65, 75, 85)
 
 xbarra = sum(fi*mi)/n
 xbarra
@@ -97,7 +97,7 @@ S_cuadrado
 S = sqrt(S_cuadrado)
 S
 
-pi = pnorm(3 : 10* 10, xbarra, S) - pnorm(2 : 9 *10, xbarra, S)
+pi = pnorm(3 : 9* 10, xbarra, S) - pnorm(2 : 8 *10, xbarra, S)
 pi
 
 chi2_obs = sum((fi-n*pi)^2/(n*pi))
