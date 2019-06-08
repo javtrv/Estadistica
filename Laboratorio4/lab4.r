@@ -90,15 +90,10 @@ plot(mod1)
 # Eliminamos las variables que no son significativas hasta obtener el mejor modelo
 mod2 = lm(Life.Exp ~ Population + Murder + HS.Grad + Frost, data = edo.77)
 summary(mod2)
-plot(mod2)
 
 mod3 = lm(Life.Exp ~ Murder + HS.Grad + Frost, data = edo.77)
 summary(mod3)
 plot(mod3)
-
-mod4 = lm(Life.Exp ~ Murder, data = edo.77)
-summary(mod4)
-plot(mod4)
 
 #####################################################################################
 
