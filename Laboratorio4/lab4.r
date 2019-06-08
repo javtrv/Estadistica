@@ -31,7 +31,7 @@ View(edo.77)
 # Realizamos los histogramas de las variables
 hist(edo.77$Population, main = "Poblacion estimada al 01/07/1975", ylab = "Estados", xlab = "Cantidad de personas")
 hist(edo.77$Income, main = "Renta per capita (1974)", ylab = "Estados", xlab = "Renta")
-hist(edo.77$Illiteracy, main = "Analfabetismo (1970, porcentaje de la población)", ylab = "Estados", xlab = "Porcentaje de Problacion Analfabeta")
+hist(edo.77$Illiteracy, main = "Analfabetismo (1970, porcentaje de la población)", ylab = "Estados", xlab = "Porcentaje de Poblacion Analfabeta")
 hist(edo.77$Life.Exp, main = "Esperanza de vida en años (1969–71)", ylab = "Estados", xlab = "Años")
 hist(edo.77$Murder, main = "Asesinato y tasa de homicidio no negligente por cada 100.000 habitantes (1976)", ylab = "Estados", xlab = "Tasa")
 hist(edo.77$HS.Grad, main = "Porcentaje de graduados de escuela secundaria (1970)", ylab = "Estados", xlab = "Graduados")
@@ -106,4 +106,53 @@ plot(mod4)
 # VER RESPUESTA EN EL INFORME
 
 #####################################################################################
+
+
+
+#1.5 (20 puntos) Un químico quiere probar el efecto de 4 agentes químicos sobre la resistencia de un tipo
+#particular de tela. Debido a que podría haber variabilidad de un rollo de tela a otro, el químico decide usar
+#un diseño de bloques aleatorizados, con los rollos de tela considerados como bloques. Selecciona 5 rollos y
+#aplica los 4 agentes químicos de manera aleatoria a cada rollo. A continuación se presentan las resistencias a
+#la tención resultantes. Analizar los datos de este experimento (utilizar α = 0.05) y sacar las conclusiones
+#apropiadas.
+
+
+# Construimos los vectores
+Rollo_1= c(73,73,75,73)
+Rollo_2= c(68,67,68,71)
+Rollo_3= c(74,74,78,75)
+Rollo_4= c(71,72,73,75)
+Rollo_5= c(67,70,68,69)
+
+dat = c(Rollo_1,Rollo_2,Rollo_3,Rollo_4,Rollo_5)
+fac = c(replicate(4,"Rollo_1"),replicate(4,"Rollo_2"),replicate(4,"Rollo_3")
+        ,replicate(4,"Rollo_4"),replicate(4,"Rollo_5"))
+fact = factor(fac)
+
+tapply(dat,fact,mean)
+
+boxplot(dat~fact)
+
+mod.lm = lm(dat~fact)
+anova(mod.lm)
+
+# PARTE2
+
+Agente_Quimico_1= c(73,68,74,71,67)
+Agente_Quimico_2= c(73,67,74,72,70)
+Agente_Quimico_3= c(75,68,78,73,68)
+Agente_Quimico_4= c(73,71,75,75,69)
+
+dat = c(Agente_Quimico_1,Agente_Quimico_2,Agente_Quimico_3,Agente_Quimico_4)
+fac = c(replicate(5,"Agente_Quimico_1"),replicate(5,"Agente_Quimico_2"),replicate(5,"Agente_Quimico_3")
+        ,replicate(5,"Agente_Quimico_4"))
+fact = factor(fac)
+
+tapply(dat,fact,mean)
+
+boxplot(dat~fact)
+
+mod.lm = lm(dat~fact)
+anova(mod.lm)
+
 
