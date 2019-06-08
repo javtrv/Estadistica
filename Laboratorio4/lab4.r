@@ -3,9 +3,10 @@
 # Andrea Reyes 15-11201
 # Javier Medina 12-10400
 
+#####################################################################################
+
 # 1.1 (20 puntos) Realice un análisis descriptivo de los datos (histograma, gráfico de cajas, número de la
 # muestra, mínimo, cuartiles, media y desviación).
-
 
 # Se cargan los datos
 data(state)
@@ -40,7 +41,6 @@ hist(edo.77$Area, main = "Area de tierra en millas cuadrad", ylab = "Estados", x
 # Hacemos el Summary para extraer los datos descriptivos
 summary(edo.77)
 
-
 # Realizamos los boxsplot
 
 boxplot(edo.77$Population, ylab="Poblacion")
@@ -63,6 +63,8 @@ sd(edo.77$HS.Grad)
 sd(edo.77$Frost)
 sd(edo.77$Area)
 
+#####################################################################################
+
 # 1.2 (10 puntos) Realice un gráfico de dispersión y una matriz de correlación de las
 # variables independientes respecto a Life Exp. Interprete los resultados.
 
@@ -72,13 +74,36 @@ pairs(edo.77)
 # Matriz de correlación
 cor(edo.77)
 
+#####################################################################################
+
 # 1.3 (30 puntos) ¿Cuál es el modelo que explica mejor la variabilidad de Life Exp? 
 # Incluya todas las pruebas necesarias para llegar a este modelo. Utilice un nivel
 # de significancia de 0.001.
 
+attach(edo.77)
+# Definimos el modelo lineal
+mod1 = lm(Life.Exp ~ Population + Income + Illiteracy + Murder + HS.Grad + Frost + Area, data = edo.77)
+summary(mod1)
+# Graficamos el modelo para analizarlo
+plot(mod1)
 
+# Eliminamos las variables que no son significativas hasta obtener el mejor modelo
+mod2 = lm(Life.Exp ~ Population + Murder + HS.Grad + Frost, data = edo.77)
+summary(mod2)
+plot(mod2)
 
+mod3 = lm(Life.Exp ~ Murder + HS.Grad + Frost, data = edo.77)
+summary(mod3)
+plot(mod3)
 
+mod4 = lm(Life.Exp ~ Murder, data = edo.77)
+summary(mod4)
+plot(mod4)
 
+#####################################################################################
 
+# 1.4 (20 puntos) Realice un análisis de residuos al modelo ganador.
+# VER RESPUESTA EN EL INFORME
+
+#####################################################################################
 
